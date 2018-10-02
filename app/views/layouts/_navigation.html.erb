@@ -1,8 +1,13 @@
 <div class="topnav" id="myTopnav">
   <%= link_to 'Inicio', home_inicio_path %>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+
+  <% if usuario_signed_in? %>
+    <%= link_to 'Cerrar Sesión', destroy_usuario_session_path, method: :delete %>
+    <%= link_to "Editar usuario", edit_usuario_registration_path %>
+  <% else %>
+    <%= link_to 'Iniciar Sesión', new_usuario_session_path %>
+    <%= link_to 'Registrarse', new_usuario_registration_path %>
+  <% end %>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
