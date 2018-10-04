@@ -22,9 +22,10 @@
 html {font-family: "Lucida Sans", sans-serif;}
 $colores : (
   'white': white,
-  'cyan': #008B8B,
-  'black': black,
-  'blue': #00008B
+  'blue': #2289bf,
+  'orange': #f7941e,
+  'dark-lgh': #7c7c7c,
+  'dark-str': #1c2d36
 );
 @each $nombre, $color in $colores{
   .#{$nombre}-bc{
@@ -107,4 +108,61 @@ $colores : (
 .carousel-inner img {
     width: 100%;
     height: auto;
+}
+.first-barr{
+  padding: 60px 5px;
+}
+.icons-top{
+  font-size: 6em;
+  color: white;
+}
+.icons-bot-margin{
+  margin-bottom: 45px;
+}
+.barra1-parr{
+  height: 80px;
+  color: white;
+  text-align: center;
+  font-size: 1.1em;
+  padding-top: 15px;
+  margin-bottom: 40px;
+}
+.icons-barr1-bot{
+  margin: 0;
+  font-size: 3em;
+  color: white;
+  padding: 0;
+  border: none;
+}
+.sections-space{
+  margin-bottom: 120px;
+}
+.icons-mid-cent{
+  font-size: 3em;
+  color: white;
+  padding: 25px 2px;
+}
+.subt-mid-bot{
+  border-bottom: 4px solid #2289bf;
+  padding-left: 16px;
+  text-align: center;
+}
+.card-header a.card-link{
+  text-decoration: none;
+  color: #2289bf;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#list-mid{
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  width:95%;
+  margin:0 auto;
+  font-size: 1.4em;
+  line-height: 2.5;
+}
+.mid-width{
+  width:95%;
+  margin:0 auto;
 }

@@ -4,7 +4,7 @@
     <a class="active" href="#home">Home</a>
     <% if usuario_signed_in? %>
       <%= link_to 'Cerrar Sesión', destroy_usuario_session_path, method: :delete, class:"" %>
-      <%= link_to "Hola #{current_usuario.nombre}", edit_usuario_registration_path, class:"" %>
+      <%= link_to "Hola #{current_usuario.nombre}", edit_usuario_registration_path, class:"", title:"Editar tus datos" %>
     <% else %>
       <%= link_to 'Iniciar Sesión', new_usuario_session_path, class:"" %>
       <%= link_to 'Registrarse', new_usuario_registration_path, class:"" %>
