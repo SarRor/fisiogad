@@ -13,7 +13,8 @@ group :production do
   gem 'pg', '~> 1.1', '>= 1.1.3'
 end
 gem 'devise', '~> 4.5'
-
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
