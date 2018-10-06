@@ -1,0 +1,17 @@
+<div class="container">
+  <h2 class="text-center blue-tx">Lista de archivos</h2>
+
+  <% @archivos.each do |archivo| %>
+    <div class="row index-list orange-bc">
+      <div class="col-sm-2 index-data">
+        <%= image_tag(archivo.imagenes[0].thumb.url, class:"img-responsive") %>
+      </div>
+      <div class="col-sm-10 index-data">
+        <h3><%= archivo.titulo %></h3>
+        <p><%= archivo.descripcion %></p><br>
+        <%= link_to 'Mostrar', archivo, class:"btn blue-bc white-tx" %> | <%= link_to 'Editar', edit_archivo_path(archivo), class:"btn btn-light" %> | <%= link_to 'Eliminar', archivo, method: :delete, data: { confirm: '¿Estás seguro?' }, class:"btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'Subir archivo', new_archivo_path %>
+</div>

@@ -13,10 +13,12 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require jquery.slick
+//= require initialize
+//= require_tree .
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {

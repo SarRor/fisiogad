@@ -1,0 +1,16 @@
+<div class="arch-show container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="text-center orange-tx text-uppercase blue-bc font-weight-bold title-pad"><%= @archivo.titulo %></h2>
+      <div class="scroller">
+        <% for i in (0...@archivo.imagenes.size) %>
+          <%= image_tag(@archivo.imagenes[i].thumb.url, class:"img-responsive") %>
+        <% end %>
+      </div>
+      <p class="bg-primary white-tx parr-tx"><%= @archivo.descripcion %></p>
+    </div>
+  </div>
+  <hr>
+  <%= link_to 'Editar', edit_archivo_path(@archivo), class:"btn orange-bc" %> |
+  <%= link_to 'Lista de archivos', archivos_path , class:"btn blue-bc white-tx" %>
+</div>

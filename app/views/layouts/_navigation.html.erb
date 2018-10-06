@@ -1,7 +1,9 @@
 <div id="navbar">
-  <%= link_to 'FISIOGAD', home_inicio_path, id:'logo' %>
+  <%= link_to 'FISIOGAD', root_path, id:'logo' %>
   <div id="navbar-right">
     <a class="active" href="#home">Home</a>
+    <%= link_to 'Galería', galeria_path %>
+    <%= link_to 'Archivo nuevo', new_archivo_path %>
     <% if usuario_signed_in? %>
       <%= link_to 'Cerrar Sesión', destroy_usuario_session_path, method: :delete, class:"" %>
       <%= link_to "Hola #{current_usuario.nombre}", edit_usuario_registration_path, class:"", title:"Editar tus datos" %>
