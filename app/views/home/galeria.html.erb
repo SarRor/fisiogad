@@ -1,16 +1,16 @@
-<div class="container"  style="width:80%; margin auto;">
-  <h2 class="text-center blue-tx">Galería</h2>
+<div class="container">
+  <h2 class="text-center white-tx gal-tit">Galería</h2>
   <% @archivos.each do |archivo| %>
-    <div class="row">
-        <div class="col-sm-10">
-          <h3><%= archivo.titulo %></h3>
-          <div class="scroller">
-            <% for i in (0...archivo.imagenes.size) %>
-              <%= image_tag(archivo.imagenes[i].thumb.url, class:"img-responsive") %>
-            <% end %>
-          </div>
-          <p><%= archivo.descripcion %></p><br>
+    <div class="gal-row">
+      <h3 class="text-center blue-tx"><%= archivo.titulo %></h3>
+      <div class="flex-container">
+        <div class="scroller">
+          <% for i in (0...archivo.imagenes.size) %>
+            <%= image_tag(archivo.imagenes[i].thumb.url, class:"img-responsive") %>
+          <% end %>
         </div>
+      </div>
+      <p class="gal-parr"><%= archivo.descripcion %></p><br>
     </div>
   <% end %>
 </div>

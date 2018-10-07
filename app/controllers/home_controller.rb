@@ -4,4 +4,6 @@ class HomeController < ApplicationController
   def galeria
     @archivos = Archivo.all
   end
+  def contacto
+  end
 end

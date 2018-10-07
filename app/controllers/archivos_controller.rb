@@ -1,6 +1,7 @@
 class ArchivosController < ApplicationController
   before_action :set_archivo, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!
+  rescue_from ActiveRecord::RecordNotFound, with: :enlace_invalido
   # GET /archivos
   # GET /archivos.json
   def index
@@ -28,7 +29,7 @@ class ArchivosController < ApplicationController
 
     respond_to do |format|
       if @archivo.save
-        format.html { redirect_to @archivo, notice: 'Archivo was successfully created.' }
+        format.html { redirect_to @archivo, notice: 'El archivo fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @archivo }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ArchivosController < ApplicationController
   def update
     respond_to do |format|
       if @archivo.update(archivo_params)
-        format.html { redirect_to @archivo, notice: 'Archivo was successfully updated.' }
+        format.html { redirect_to @archivo, notice: 'El archivo fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @archivo }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class ArchivosController < ApplicationController
   def destroy
     @archivo.destroy
     respond_to do |format|
-      format.html { redirect_to archivos_url, notice: 'Archivo was successfully destroyed.' }
+      format.html { redirect_to archivos_url, notice: 'El archivo ha sido eliminado.' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +71,10 @@ class ArchivosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def archivo_params
       params.require(:archivo).permit(:titulo, :descripcion, {imagenes: []})
+    end
+
+    def enlace_invalido
+      logger.error "Intentó ingresar a una dirección incorrecta #{params[:id]}"
+      redirect_to archivos_url, notice: 'dirección inválida'
     end
 end

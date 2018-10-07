@@ -1,15 +1,19 @@
 <div id="navbar">
   <%= link_to 'FISIOGAD', root_path, id:'logo' %>
   <div id="navbar-right">
-    <a class="active" href="#home">Home</a>
+    <%= link_to 'INICIO', root_path, class:"active" %>
     <%= link_to 'Galería', galeria_path %>
-    <%= link_to 'Archivo nuevo', new_archivo_path %>
+    <%= link_to 'Contacto', contacto_path %>
     <% if usuario_signed_in? %>
       <%= link_to 'Cerrar Sesión', destroy_usuario_session_path, method: :delete, class:"" %>
       <%= link_to "Hola #{current_usuario.nombre}", edit_usuario_registration_path, class:"", title:"Editar tus datos" %>
     <% else %>
       <%= link_to 'Iniciar Sesión', new_usuario_session_path, class:"" %>
       <%= link_to 'Registrarse', new_usuario_registration_path, class:"" %>
+    <% end %>
+    <% if usuario_signed_in? && current_usuario.is_admin? %>
+      <%= link_to 'Lista de archivos', archivos_path, style:"color:green;" %>
+      <%= link_to 'Galería nueva', new_archivo_path, style:"color:green;" %>
     <% end %>
   </div>
 </div>

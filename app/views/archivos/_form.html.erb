@@ -1,16 +1,6 @@
+<%= render 'shared/errors', obj: archivo %>
+
 <%= form_with(model: archivo, local: true) do |form| %>
-  <% if archivo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(archivo.errors.count, "error") %> prohibited this archivo from being saved:</h2>
-
-      <ul>
-      <% archivo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-group">
     <b><%= form.label :titulo, 'Título', for:'archivo_titulo' %><b>
     <%= form.text_field :titulo, autofocus: true, class:"form-control", id: :archivo_titulo %>
@@ -26,6 +16,6 @@
     <%= form.text_area :descripcion, class:"form-control", rows:5 , id: :archivo_descripcion %>
   </div>
 
-  <%= form.submit "Crear archivo o galería", class:"btn btn-primary btn-lg" %>
+  <%= form.submit(archivo.new_record? ? "Crear archivo" : "Actualizar datos", class:"btn btn-primary btn-lg") %>
 
 <% end %>
